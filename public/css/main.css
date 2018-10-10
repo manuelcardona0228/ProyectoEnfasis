@@ -10,13 +10,92 @@ header{
     background-color: black;    
 }
 
+.header-btn{
+    background-color: white; 
+    color: #C9001A; 
+    border: 2px solid #C9001A;
+}
+
+.header-btn:hover {
+    background-color: #C9001A;
+    color: white;
+}
+
 #testimonial{
-    background: rgb(166, 166, 166);
+    background: #C9001A;
     padding: 50px 0 30px 0;
     text-align: center;
     margin-top: 40px;
 }
 
+#info-two{
+    background: #0742FF;
+    color: white;
+}
+
+.info-one-btn{
+    background-color: white; 
+    color: #0742FF; 
+    border: 2px solid #0742FF;
+}
+
+.info-one-btn:hover {
+    background-color: #0742FF;
+    color: white;
+}
+
 footer{
     background: url(../plugins/bootstrap/img/barber.jpg)
+}
+
+
+/** Estilos para la pagina al loggearse */
+
+.sidebar{
+    background: black;
+    color: aliceblue;
+    position: fixed;
+    bottom: 0%;
+    top: 8.5%;
+    padding: 0%;
+}
+
+#card-accordion{
+    background: black;
+    padding: 0%;
+}
+
+.accordion-btn{
+    background-color: black; 
+    color: white; 
+    border: 2px solid black;
+    padding: 4%;
+    margin: 0 0 1px 0;
+}
+
+.accordion-btn:hover{
+    background: white;
+    color: black;
+}
+
+.botones{
+    color: aliceblue;
+    list-style: none;
+    padding: 0%;
+}
+
+.botones a li{
+    background: rgba(119, 118, 118, 0.925);
+    padding: 3%;
+    margin: 0 0 1px 0;
+    text-align: center;
+}
+
+.botones a li:hover{
+    background: rgba(90, 90, 90, 0.719);
+}
+
+.botones a{
+    color: aliceblue;
+    text-decoration: none;
 }

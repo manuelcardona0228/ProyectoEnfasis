@@ -1,39 +1,37 @@
+@include('Llamados.links')
+
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>Bootstrap page</title>
-
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css?family=Titillium+Web" rel="stylesheet">
-
-    <!-- Bootstrap 4 -->
-    <link rel="stylesheet" href="{{ asset('plugins/bootstrap/css/bootstrap.css') }}">
-
-    <!-- Scroll Reveal -->
-    <script src="https://unpkg.com/scrollreveal"></script>
-
-    <!-- CSS Personalizados -->
-    <link rel="stylesheet" href="css/main.css">
-
+    <title>Sistema Barberias</title>
 </head>
 <body>
     <!-- Barra De Navegacion -->
-    <nav class="navbar navbar-expand-lg fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
         <div class="container">
-            <a class="navbar-brand" href="#">Sistema Barberias</a>
+            <a class="navbar-brand" ></a>
+            <img src="plugins/bootstrap/img/barberIcon.png" width="30" height="30" class="d-inline-block align-top" alt="">
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                <li class="nav-item active">
+                    <a class="nav-link" href="/"> Sistema Barberias </a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="/login"> Iniciar Sesión </a>
+                </li>    
+                </ul>
                 <ul class="navbar-nav ml-auto">
                 <li class="nav-item active">
                     <a class="nav-link" href="#header"> Noticias </a>
                 </li>
-                <li class="nav-item">
+                <li class="nav-item active">
                     <a class="nav-link" href="#info-one"> Acerda de </a>
                 </li>
-                <li class="nav-item">
+                <li class="nav-item active">
                     <a class="nav-link" href="#contact"> Contacto </a>
                 </li>
                 </ul>
@@ -54,7 +52,7 @@
                     <div class="header-content-right">
                         <h1 class="display-4">Lorem ipsum dolor</h1>
                         <p class="mt-5">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas aspernatur veniam expedita, maxime vero ad quam, ipsam alias consectetur necessitatibus harum et corrupti unde saepe, iste adipisci porro nam commodi?</p>
-                        <a href="#" class="btn btn-outline-danger btn-lg mt-2 header-btn">Leer Más</a>
+                        <a href="#" class="btn btn-lg mt-2 header-btn">Leer Más</a>
                     </div>
                 </div>
             </div>
@@ -64,10 +62,10 @@
     <!-- Testimonio -->
     <section id="testimonial">
         <div class="container">
-            <p class="h2 mb-2">
+            <p class="h2 mb-2" style="color: #ffffff">
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit itaque facere ipsam, quisquam dolorem exercitationem quod necessitatibus alias rem accusantium et, tempora doloribus consectetur voluptas eveniet hic voluptates sequi. Ipsam?
             </p>
-            <p class="h4">- Leonardo Lopez</p>
+            <p class="h4" style="color: #ffffff">- Leonardo Lopez</p>
         </div>
     </section>
 
@@ -84,7 +82,7 @@
                     <div class="info-right">
                         <h2>Lorem ipsum dolor sit.</h2>
                         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum ea assumenda nostrum, totam laudantium laborum asperiores quas officia illo repellat distinctio dolor ullam error culpa consectetur laboriosam corrupti velit omnis!. Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum ea assumenda nostrum, totam laudantium laborum asperiores quas officia illo repellat distinctio dolor ullam error culpa consectetur laboriosam corrupti velit omnis!</p>
-                        <a href="#" class="btn btn-outline-primary btn-lg">Leer Más</a>
+                        <a href="#" class="btn btn-outline-primary btn-lg info-one-btn">Leer Más</a>
                     </div>
                 </div>
             </div>
@@ -95,11 +93,11 @@
     <section id="info-two">
         <div class="container">
             <div class="row my-5">
-                <div class="col-md-6">
+                <div class="col-md-6 my-4">
                     <h2>Lorem ipsum dolor sit.</h2>
                     <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ducimus consequatur maxime iure praesentium tempora explicabo in id cupiditate illo numquam commodi quis sed reprehenderit corrupti accusantium cumque quia, ab quas. Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ducimus consequatur maxime iure praesentium tempora explicabo in id cupiditate illo numquam commodi quis sed reprehenderit corrupti accusantium cumque quia, ab quas.</p>
                 </div>
-                <div class="col-md-6">
+                <div class="col-md-6 my-4">
                     <h2>Lorem ipsum dolor sit.</h2>
                     <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ducimus consequatur maxime iure praesentium tempora explicabo in id cupiditate illo numquam commodi quis sed reprehenderit corrupti accusantium cumque quia, ab quas. Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ducimus consequatur maxime iure praesentium tempora explicabo in id cupiditate illo numquam commodi quis sed reprehenderit corrupti accusantium cumque quia, ab quas.</p>
                 </div>
@@ -112,31 +110,27 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-5">
-                    <form class="card my-4">
-                        <div class="card-body">
-                            <div class="form-group">
-                                <input type="text" placeholder="Nombre" class="form-control">
+                    <form class="card text-white bg-dark my-4">
+                        <div class="card-header">Contacto</div>
+                            <div class="card-body">
+                                <div class="form-group">
+                                    <input type="text" placeholder="Nombre" class="form-control">
+                                </div>
+                                <div class="form-group">
+                                    <input type="email" placeholder="Email" class="form-control">
+                                </div>
+                                <div class="form-group">
+                                    <textarea cols="30" rows="10" placeholder="Mensaje" class="form-control"></textarea>
+                                </div>
+                                <button type="submit" class="btn btn-outline-dark btn-block"> 
+                                    Enviar
+                                </button>
                             </div>
-                            <div class="form-group">
-                                <input type="email" placeholder="Email" class="form-control">
-                            </div>
-                            <div class="form-group">
-                                <textarea cols="30" rows="10" placeholder="Mensaje" class="form-control"></textarea>
-                            </div>
-                            <button type="submit" class="btn btn-outline-dark btn-block"> 
-                                Enviar
-                            </button>
-                        </div>
-                    </form>
+                        </form>
                 </div>
             </div>
         </div>
     </footer>
-
-    <!-- Scripts Bootstrap -->
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
-    <script src="plugins/bootstrap/js/bootstrap.js"></script>
 
     <!-- Scripts -->
     <script>
