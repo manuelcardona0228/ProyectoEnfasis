@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateSedesTable extends Migration
+class CreateGaleriasTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,16 @@ class CreateSedesTable extends Migration
      */
     public function up()
     {
-        Schema::create('sedes', function (Blueprint $table) {
+        Schema::create('galerias', function (Blueprint $table) {
             $table->increments('id');
+            $table->string('nombre',20);
+            $table->string('descripcion',100);
+            $table->string('barbero_documento', 10)->index();
             $table->timestamps();
+
+            $table->foreign('barbero_documento')
+            ->references('documento')
+            ->on('barberos');
         });
     }
 
@@ -26,6 +33,6 @@ class CreateSedesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('sedes');
+        Schema::dropIfExists('galerias');
     }
 }
