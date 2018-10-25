@@ -48,6 +48,15 @@ footer{
     background: url(../plugins/bootstrap/img/barber.jpg)
 }
 
+/** Fondo registro y loggin */
+#body-register{
+    background: url(../plugins/bootstrap/img/ImgRegistro.jpg)
+}
+
+#body-loggin{
+    background: url(../plugins/bootstrap/img/FondoLoggin.jpg);
+    
+}
 
 /** Estilos para la pagina al loggearse */
 

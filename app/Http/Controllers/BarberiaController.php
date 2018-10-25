@@ -14,7 +14,8 @@ class BarberiaController extends Controller
      */
     public function index()
     {
-        //
+        $barberias = Barberia::orderBy('id')->paginate(10);
+        return view('barberias.index', compact('barberias'));
     }
 
     /**
@@ -24,7 +25,7 @@ class BarberiaController extends Controller
      */
     public function create()
     {
-        //
+        return view('administradores.create');
     }
 
     /**
@@ -35,7 +36,15 @@ class BarberiaController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $input = $request->all();
+
+        $barberia = new Barberia();
+        $barberia ->fill($imput);
+        $barberia ->user_id = Auth::id();
+        $barberia ->save();
+
+        Session::flash('estado','la barberia ha sido creada con éxito!');
+        return redirect('/barberias');
     }
 
     /**
@@ -46,7 +55,7 @@ class BarberiaController extends Controller
      */
     public function show(Barberia $barberia)
     {
-        //
+        return view('barberias.show', compact('barberia'));
     }
 
     /**
@@ -57,7 +66,12 @@ class BarberiaController extends Controller
      */
     public function edit(Barberia $barberia)
     {
-        //
+        $user = User::all()->pluck('nit');
+        $user = User::all()->pluck('razonSocial');
+        $user = User::all()->pluck('direccion');
+        $user = User::all()->pluck('telefono');
+        $user = User::all()->pluck('administrador_documento');
+        $user = User::all()->pluck('sitioWeb');
     }
 
     /**
@@ -69,7 +83,13 @@ class BarberiaController extends Controller
      */
     public function update(Request $request, Barberia $barberia)
     {
-        //
+        $input = $request->all();
+  
+        $barberia->fill($input)->save();
+  
+        Session::flash('barberias', 'la barberia fue actualizada correctamente!');
+
+        return redirect('/barberias');
     }
 
     /**
@@ -80,6 +100,10 @@ class BarberiaController extends Controller
      */
     public function destroy(Barberia $barberia)
     {
-        //
+        $barberia->delete();
+
+        Session::flash('estado', 'la barberia fue borrado exitosamente!');
+
+        return redirect('/barberias');
     }
 }

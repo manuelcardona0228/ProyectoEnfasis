@@ -14,7 +14,8 @@ class BarberoController extends Controller
      */
     public function index()
     {
-        //
+        $barberos = Barbero::orderBy('id')->paginate(10);
+        return view('barberos.index', compact('barberos'));
     }
 
     /**
@@ -24,7 +25,7 @@ class BarberoController extends Controller
      */
     public function create()
     {
-        //
+        return view('barberos.create');
     }
 
     /**
@@ -35,7 +36,15 @@ class BarberoController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $input = $request->all();
+
+        $barbero = new Barbero();
+        $barbero ->fill($imput);
+        $barbero ->user_id = Auth::id();
+        $barbero ->save();
+
+        Session::flash('estado','el barbero ha sido creado con éxito!');
+        return redirect('/barberos');
     }
 
     /**
@@ -46,7 +55,7 @@ class BarberoController extends Controller
      */
     public function show(Barbero $barbero)
     {
-        //
+        return view('barberos.show', compact('barbero'));
     }
 
     /**
@@ -57,7 +66,15 @@ class BarberoController extends Controller
      */
     public function edit(Barbero $barbero)
     {
-        //
+        $user = User::all()->pluck('documento');
+        $user = User::all()->pluck('nombres');
+        $user = User::all()->pluck('apellido');
+        $user = User::all()->pluck('telefono');
+        $user = User::all()->pluck('correo');
+        $user = User::all()->pluck('fechaNac');
+        $user = User::all()->pluck('nameUser');
+        $user = User::all()->plunk('password');
+        $user = User::all()->plunk('sede_nit');
     }
 
     /**
@@ -69,7 +86,13 @@ class BarberoController extends Controller
      */
     public function update(Request $request, Barbero $barbero)
     {
-        //
+        $input = $request->all();
+  
+        $administrador->fill($input)->save();
+  
+        Session::flash('barberos', 'el barbero fue actualizado correctamente!');
+
+        return redirect('/barberos');
     }
 
     /**
@@ -80,6 +103,10 @@ class BarberoController extends Controller
      */
     public function destroy(Barbero $barbero)
     {
-        //
+        $barberor->delete();
+
+        Session::flash('estado', 'el barbero se ha eliminado correctamente');
+
+        return redirect('/barberos');
     }
 }

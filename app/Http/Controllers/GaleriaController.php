@@ -14,7 +14,8 @@ class GaleriaController extends Controller
      */
     public function index()
     {
-        //
+        $galerias = Galeria::orderBy('id')->paginate(10);
+        return view('galerias.index', compact('galerias'));
     }
 
     /**
@@ -24,7 +25,8 @@ class GaleriaController extends Controller
      */
     public function create()
     {
-        //
+        return view('galerias.create');
+
     }
 
     /**
@@ -35,7 +37,15 @@ class GaleriaController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $input = $request->all();
+
+        $galeria = new Turno();
+        $galeria ->fill($imput);
+        $galeria ->user_id = Auth::id();
+        $galeria ->save();
+
+        Session::flash('estado','la galeria ha sido añadida con éxito');
+        return redirect('/galerias');
     }
 
     /**
@@ -46,7 +56,7 @@ class GaleriaController extends Controller
      */
     public function show(Galeria $galeria)
     {
-        //
+        return view('galerias.show',compact('galeria'));
     }
 
     /**
@@ -57,7 +67,10 @@ class GaleriaController extends Controller
      */
     public function edit(Galeria $galeria)
     {
-        //
+        $user = User::all()->pluck('nombre');
+        $user = User::all()->pluck('descripcion');
+        $user = User::all()->pluck('barbero_documento');
+
     }
 
     /**
@@ -69,7 +82,10 @@ class GaleriaController extends Controller
      */
     public function update(Request $request, Galeria $galeria)
     {
-        //
+        $input = $request->all();
+        $galeria ->fill($input)->save();
+        Session::flash('galeria','la galeria se ha editado correctamente');
+        return redirect('/galerias');
     }
 
     /**
@@ -80,6 +96,8 @@ class GaleriaController extends Controller
      */
     public function destroy(Galeria $galeria)
     {
-        //
+        $galeria->delete();
+        Session::flash('estado','la galeria se ha eliminado correctamente');
+        return redirect('/galerias');
     }
 }

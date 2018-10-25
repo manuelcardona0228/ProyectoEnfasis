@@ -9,6 +9,7 @@
 </head>
 <body>
 
+    <div id= admin>
     <!-- Navegacion -->
     <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
         <div class="container">
@@ -133,8 +134,9 @@
             </div>
         </div>
     </div>
-
-
-    
+    <main class="py-4">
+        @yield('content')
+    </main>
+    </div>
 </body>
 </html>

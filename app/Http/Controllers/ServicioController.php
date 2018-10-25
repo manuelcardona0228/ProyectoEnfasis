@@ -14,7 +14,8 @@ class ServicioController extends Controller
      */
     public function index()
     {
-        //
+        $servicios = Servicio::orderBy('id')->paginate(10);
+        return view('servicios.index', compact('servicios'));
     }
 
     /**
@@ -24,7 +25,7 @@ class ServicioController extends Controller
      */
     public function create()
     {
-        //
+        return view('servicios.create');
     }
 
     /**
@@ -35,7 +36,15 @@ class ServicioController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $input = $request->all();
+
+        $servicio = new Servicio();
+        $servicio ->fill($imput);
+        $servicio ->user_id = Auth::id();
+        $servicio ->save();
+
+        Session::flash('estado','el servicio ha sido añadido con éxito');
+        return redirect('/servicios');
     }
 
     /**
@@ -46,7 +55,7 @@ class ServicioController extends Controller
      */
     public function show(Servicio $servicio)
     {
-        //
+        return view('servicios.show',compact('servicio'));
     }
 
     /**
@@ -57,7 +66,9 @@ class ServicioController extends Controller
      */
     public function edit(Servicio $servicio)
     {
-        //
+        $user = User::all()->pluck('nombre');
+        $user = User::all()->pluck('descripcion');
+        $user = User::all()->pluck('valor');
     }
 
     /**
@@ -69,7 +80,10 @@ class ServicioController extends Controller
      */
     public function update(Request $request, Servicio $servicio)
     {
-        //
+        $input = $request->all();
+        $servicio ->fill($input)->save();
+        Session::flash('servicios','el servicio se ha editado correctamente');
+        return redirect('/servicios');
     }
 
     /**
@@ -80,6 +94,9 @@ class ServicioController extends Controller
      */
     public function destroy(Servicio $servicio)
     {
-        //
+        $servicio->delete();
+        Session::flash('estados','el servicio se ha eliminado correctamente');
+        return redirect('/servicios');
+
     }
 }

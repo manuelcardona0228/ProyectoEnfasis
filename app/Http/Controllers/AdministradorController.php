@@ -14,7 +14,8 @@ class AdministradorController extends Controller
      */
     public function index()
     {
-        //
+       $administradores = Administrador::orderBy('id')->paginate(10);
+       return view('administradores.index', compact('administradores'));
     }
 
     /**
@@ -24,7 +25,7 @@ class AdministradorController extends Controller
      */
     public function create()
     {
-        //
+       return view('administradores.create');
     }
 
     /**
@@ -35,7 +36,15 @@ class AdministradorController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $input = $request->all();
+
+        $administrador = new Administrador();
+        $administrador ->fill($imput);
+        $administrador ->user_id = Auth::id();
+        $administrador ->save();
+
+        Session::flash('estado','El administrador ha sido creado con éxito!');
+        return redirect('/administradores');
     }
 
     /**
@@ -46,7 +55,7 @@ class AdministradorController extends Controller
      */
     public function show(Administrador $administrador)
     {
-        //
+        return view('administradores.show', compact('administrador'));
     }
 
     /**
@@ -57,7 +66,17 @@ class AdministradorController extends Controller
      */
     public function edit(Administrador $administrador)
     {
-        //
+        $user = User::all()->pluck('documento');
+        $user = User::all()->pluck('nombres');
+        $user = User::all()->pluck('apellidos');
+        $user = User::all()->pluck('telefono');
+        $user = User::all()->pluck('correo');
+        $user = User::all()->pluck('fechaNac');
+        $user = User::all()->pluck('nameUser');
+        $user = User::all()->pluck('password');
+        $user = User::all()->pluck('cargo_id');
+
+        return view('administradoress.edit', compact('administrador','users'));
     }
 
     /**
@@ -69,7 +88,13 @@ class AdministradorController extends Controller
      */
     public function update(Request $request, Administrador $administrador)
     {
-        //
+        $input = $request->all();
+  
+        $administrador->fill($input)->save();
+  
+        Session::flash('administradores', 'El administrador fue editado exitosamente!');
+
+        return redirect('/administradores');
     }
 
     /**
@@ -80,6 +105,10 @@ class AdministradorController extends Controller
      */
     public function destroy(Administrador $administrador)
     {
-        //
+        $administrador->delete();
+
+        Session::flash('estado', 'El administrador fue borrado exitosamente!');
+
+        return redirect('/administradores');
     }
 }

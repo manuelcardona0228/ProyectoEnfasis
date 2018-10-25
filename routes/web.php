@@ -21,6 +21,8 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/homeAd', 'HomeAdminController@inicio');
 
+Route::resource('cargos','CargoController');
+
 Route::resource('administradores', 'AdministradorController');
 
 Route::resource('barberos', 'BarberoController');

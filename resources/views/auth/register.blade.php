@@ -7,7 +7,7 @@
     <meta charset="UTF-8">
 
 </head>
-<body>
+<body id="body-register">
 
     <!-- NavBar -->
     <nav class="navbar navbar-expand-lg navbar-dark">
@@ -53,6 +53,34 @@
                                 </div>
 
                                 <div class="form-group row">
+                                    <label for="lastName" class="col-md-4 col-form-label text-md-right">{{ __('Apellidos') }}</label>
+
+                                    <div class="col-md-6">
+                                        <input id="lastName" type="text" class="form-control{{ $errors->has('lastName') ? ' is-invalid' : '' }}" name="lastName" value="{{ old('lastName') }}" required autofocus>
+
+                                        @if ($errors->has('lastName'))
+                                            <span class="invalid-feedback" role="alert">
+                                                <strong>{{ $errors->first('lastName') }}</strong>
+                                            </span>
+                                        @endif
+                                    </div>
+                                </div>
+
+                                <div class="form-group row">
+                                    <label for="phone" class="col-md-4 col-form-label text-md-right">{{ __('Telefono') }}</label>
+
+                                    <div class="col-md-6">
+                                        <input id="phone" type="text" class="form-control{{ $errors->has('phone') ? ' is-invalid' : '' }}" name="phone" value="{{ old('phone') }}" required autofocus>
+
+                                        @if ($errors->has('phone'))
+                                            <span class="invalid-feedback" role="alert">
+                                                <strong>{{ $errors->first('phone') }}</strong>
+                                            </span>
+                                        @endif
+                                    </div>
+                                </div>
+
+                                <div class="form-group row">
                                     <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('Dirección E-Mail') }}</label>
 
                                     <div class="col-md-6">
@@ -61,6 +89,34 @@
                                         @if ($errors->has('email'))
                                             <span class="invalid-feedback" role="alert">
                                                 <strong>{{ $errors->first('email') }}</strong>
+                                            </span>
+                                        @endif
+                                    </div>
+                                </div>
+
+                                <div class="form-group row">
+                                    <label for="fechaNac" class="col-md-4 col-form-label text-md-right">{{ __('Fecha De Nacimiento') }}</label>
+
+                                    <div class="col-md-6">
+                                        <input id="fechaNac" type="date" class="form-control{{ $errors->has('fechaNac') ? ' is-invalid' : '' }}" name="fechaNac" required>
+
+                                        @if ($errors->has('fechaNac'))
+                                            <span class="invalid-feedback" role="alert">
+                                                <strong>{{ $errors->first('fechaNac') }}</strong>
+                                            </span>
+                                        @endif
+                                    </div>
+                                </div>
+
+                                <div class="form-group row">
+                                    <label for="nomUser" class="col-md-4 col-form-label text-md-right">{{ __('Nombre De Usuario') }}</label>
+
+                                    <div class="col-md-6">
+                                        <input id="nomUser" type="text" class="form-control{{ $errors->has('nomUser') ? ' is-invalid' : '' }}" name="nomUser" value="{{ old('nomUser') }}" required autofocus>
+
+                                        @if ($errors->has('nomUser'))
+                                            <span class="invalid-feedback" role="alert">
+                                                <strong>{{ $errors->first('nomUser') }}</strong>
                                             </span>
                                         @endif
                                     </div>

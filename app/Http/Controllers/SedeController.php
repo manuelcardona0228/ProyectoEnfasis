@@ -14,7 +14,8 @@ class SedeController extends Controller
      */
     public function index()
     {
-        //
+        $sedes = Sede::orderBy('id')->paginate(10);
+        return view('sedes.index', compact('sedes'));
     }
 
     /**
@@ -24,7 +25,7 @@ class SedeController extends Controller
      */
     public function create()
     {
-        //
+        return view('administradores.create');
     }
 
     /**
@@ -35,7 +36,15 @@ class SedeController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $input = $request->all();
+
+        $sede = new Barberia();
+        $sede ->fill($imput);
+        $sede ->user_id = Auth::id();
+        $sede ->save();
+
+        Session::flash('estado','la sede se ha agregado con éxito!');
+        return redirect('/sedes');
     }
 
     /**
@@ -46,7 +55,7 @@ class SedeController extends Controller
      */
     public function show(Sede $sede)
     {
-        //
+        return view('sedes.show', compact('sede'));
     }
 
     /**
@@ -57,7 +66,12 @@ class SedeController extends Controller
      */
     public function edit(Sede $sede)
     {
-        //
+        $user = User::all()->pluck('nit');
+        $user = User::all()->pluck('razonSocial');
+        $user = User::all()->pluck('direccion');
+        $user = User::all()->pluck('telefono');
+        $user = User::all()->pluck('barberia_nit');
+        $user = User::all()->pluck('administrador_documento');
     }
 
     /**
@@ -69,7 +83,14 @@ class SedeController extends Controller
      */
     public function update(Request $request, Sede $sede)
     {
-        //
+
+        $imput = $request->all();
+  
+        $sede->fill($input)->save();
+  
+        Session::flash('sedes', 'la sede fue actualizada correctamente!');
+
+        return redirect('/sedes');
     }
 
     /**
@@ -80,6 +101,10 @@ class SedeController extends Controller
      */
     public function destroy(Sede $sede)
     {
-        //
+        $sede->delete();
+
+        Session::flash('estado', 'la sede fue borrado exitosamente!');
+
+        return redirect('/sedes');
     }
 }
