@@ -4,7 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Administrador extends Model
+class Admin extends Model
 {
     /**
      * The attributes that are mass assignable.
@@ -23,4 +23,9 @@ class Administrador extends Model
     protected $hidden = [
         'password'
     ];
+
+    public function cargo()
+    {
+        return $this->belongsTo('App\Cargo');
+    }
 }

@@ -23,7 +23,7 @@ Route::get('/homeAd', 'HomeAdminController@inicio');
 
 Route::resource('cargos','CargoController');
 
-Route::resource('administradores', 'AdministradorController');
+Route::resource('admins', 'AdminController');
 
 Route::resource('barberos', 'BarberoController');
 

@@ -9,4 +9,9 @@ class Cargo extends Model
     protected $fillable = [
         'descripcion'
     ];
+
+    public function admins()
+    {
+        return $this->hasMany('App\Admin');
+    }
 }

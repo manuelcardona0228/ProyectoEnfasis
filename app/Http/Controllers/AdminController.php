@@ -2,10 +2,15 @@
 
 namespace App\Http\Controllers;
 
-use App\Administrador;
-use Illuminate\Http\Request;
 
-class AdministradorController extends Controller
+use App\Admin;
+use App\user;
+use App\Cargo;
+use Illuminate\Http\Request;
+//use App\Http\Request\AdministradoresRequest;
+use Session;
+
+class AdminController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,8 +19,8 @@ class AdministradorController extends Controller
      */
     public function index()
     {
-       $administradores = Administrador::orderBy('id')->paginate(10);
-       return view('administradores.index', compact('administradores'));
+       $admins = Admin::orderBy('id')->paginate(10);
+       return view('admins.index', compact('admins'));
     }
 
     /**
@@ -25,7 +30,7 @@ class AdministradorController extends Controller
      */
     public function create()
     {
-       return view('administradores.create');
+       return view('admins.create');
     }
 
     /**
@@ -38,13 +43,14 @@ class AdministradorController extends Controller
     {
         $input = $request->all();
 
-        $administrador = new Administrador();
-        $administrador ->fill($imput);
-        $administrador ->user_id = Auth::id();
-        $administrador ->save();
+        $admin = new Admin();
+        $admin->fill($input);
+        $admin->cargo_id = 1;
+        $admin->save();
+
 
         Session::flash('estado','El administrador ha sido creado con éxito!');
-        return redirect('/administradores');
+        return redirect('/admins');
     }
 
     /**
@@ -53,9 +59,9 @@ class AdministradorController extends Controller
      * @param  \App\Administrador  $administrador
      * @return \Illuminate\Http\Response
      */
-    public function show(Administrador $administrador)
+    public function show(Admin $admin)
     {
-        return view('administradores.show', compact('administrador'));
+        return view('admins.show', compact('admin'));
     }
 
     /**
@@ -64,19 +70,19 @@ class AdministradorController extends Controller
      * @param  \App\Administrador  $administrador
      * @return \Illuminate\Http\Response
      */
-    public function edit(Administrador $administrador)
+    public function edit(Admin $admin)
     {
-        $user = User::all()->pluck('documento');
-        $user = User::all()->pluck('nombres');
-        $user = User::all()->pluck('apellidos');
-        $user = User::all()->pluck('telefono');
-        $user = User::all()->pluck('correo');
-        $user = User::all()->pluck('fechaNac');
-        $user = User::all()->pluck('nameUser');
-        $user = User::all()->pluck('password');
-        $user = User::all()->pluck('cargo_id');
+        $cargo = Cargo::all()->pluck('descripcion', 'id');
+        //$user = User::all()->pluck('nombres');
+        //$user = User::all()->pluck('apellidos');
+        //$user = User::all()->pluck('telefono');
+        //$user = User::all()->pluck('correo');
+        //$user = User::all()->pluck('fechaNac');
+        //$user = User::all()->pluck('nameUser');
+        //$user = User::all()->pluck('password');
+        //$user = User::all()->pluck('cargo_id');
 
-        return view('administradoress.edit', compact('administrador','users'));
+        return view('admins.edit', compact('admin','cargo'));
     }
 
     /**
@@ -86,15 +92,15 @@ class AdministradorController extends Controller
      * @param  \App\Administrador  $administrador
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Administrador $administrador)
+    public function update(Request $request, Admin $admin)
     {
         $input = $request->all();
   
-        $administrador->fill($input)->save();
+        $admin->fill($input)->save();
   
-        Session::flash('administradores', 'El administrador fue editado exitosamente!');
+        Session::flash('estado', 'El administrador fue editado exitosamente!');
 
-        return redirect('/administradores');
+        return redirect('/admins');
     }
 
     /**
@@ -103,12 +109,12 @@ class AdministradorController extends Controller
      * @param  \App\Administrador  $administrador
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Administrador $administrador)
+    public function destroy(Admin $admin)
     {
-        $administrador->delete();
+        $admin->delete();
 
         Session::flash('estado', 'El administrador fue borrado exitosamente!');
 
-        return redirect('/administradores');
+        return redirect('/admins');
     }
 }

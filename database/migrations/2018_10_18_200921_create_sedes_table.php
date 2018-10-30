@@ -22,7 +22,7 @@ class CreateSedesTable extends Migration
             $table->string('telefono',10);
 
             $table->string('barberia_nit', 30)->index();
-            $table->string('administrador_documento', 10)->index();
+            $table->string('admin_documento', 10)->index();
 
             $table->timestamps();
 
@@ -31,9 +31,9 @@ class CreateSedesTable extends Migration
             ->on('barberias');
 
 
-            $table->foreign('administrador_documento')
+            $table->foreign('admin_documento')
             ->references('documento')
-            ->on('administradores');
+            ->on('admins');
 
             /**
              * $table->foreign('administrador_documento)
