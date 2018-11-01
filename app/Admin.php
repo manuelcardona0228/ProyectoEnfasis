@@ -28,4 +28,10 @@ class Admin extends Model
     {
         return $this->belongsTo('App\Cargo');
     }
+
+    public function barberia()
+    {
+        return $this->belongsTo('App\Barberia');
+    }
+
 }

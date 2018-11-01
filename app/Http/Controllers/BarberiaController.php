@@ -3,7 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Barberia;
+use App\Admin;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
+use Session;
 
 class BarberiaController extends Controller
 {
@@ -25,7 +28,8 @@ class BarberiaController extends Controller
      */
     public function create()
     {
-        return view('administradores.create');
+        $admin = Admin::all()->pluck('documento', 'id');
+        return view('barberias.create' , compact('admin'));
     }
 
     /**
@@ -37,10 +41,10 @@ class BarberiaController extends Controller
     public function store(Request $request)
     {
         $input = $request->all();
-
+        $cedula = $request->input('admin_id');
         $barberia = new Barberia();
-        $barberia ->fill($imput);
-        $barberia ->user_id = Auth::id();
+        $barberia ->fill($input);
+        $barberia ->admin_id= $cedula;
         $barberia ->save();
 
         Session::flash('estado','la barberia ha sido creada con éxito!');
@@ -66,12 +70,23 @@ class BarberiaController extends Controller
      */
     public function edit(Barberia $barberia)
     {
-        $user = User::all()->pluck('nit');
-        $user = User::all()->pluck('razonSocial');
-        $user = User::all()->pluck('direccion');
-        $user = User::all()->pluck('telefono');
-        $user = User::all()->pluck('administrador_documento');
-        $user = User::all()->pluck('sitioWeb');
+        //$user = User::all()->pluck('nit');
+        //$user = User::all()->pluck('razonSocial');
+        //$user = User::all()->pluck('direccion');
+        //$user = User::all()->pluck('telefono');
+        //$user = User::all()->pluck('admin_id');
+        //$user = User::all()->pluck('sitioWeb');
+        $admin = Admin::all()->pluck('nombres', 'id');
+        //$user = User::all()->pluck('nombres');
+        //$user = User::all()->pluck('apellidos');
+        //$user = User::all()->pluck('telefono');
+        //$user = User::all()->pluck('correo');
+        //$user = User::all()->pluck('fechaNac');
+        //$user = User::all()->pluck('nameUser');
+        //$user = User::all()->pluck('password');
+        //$user = User::all()->pluck('cargo_id');
+
+        return view('barberias.edit', compact('barberia','admin'));
     }
 
     /**

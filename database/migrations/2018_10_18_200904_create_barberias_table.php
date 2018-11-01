@@ -20,11 +20,11 @@ class CreateBarberiasTable extends Migration
             $table->string('direccion',64);
             $table->string('telefono',10);
             $table->string('sitioWeb',64);
-            $table->string('admin_documento', 10)->index();
+            $table->unsignedInteger('admin_id');
             $table->timestamps();
 
-            $table->foreign('admin_documento')
-            ->references('documento')
+            $table->foreign('admin_id')
+            ->references('id')
             ->on('admins');
         });
     }

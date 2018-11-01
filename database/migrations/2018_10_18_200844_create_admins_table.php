@@ -15,7 +15,7 @@ class CreateAdminsTable extends Migration
     {
         Schema::create('admins', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('documento', 10)->index();
+            $table->string('documento', 10);
             $table->string('nombres', 40);
             $table->String('apellidos', 40);
             $table->String('telefono', 13);
