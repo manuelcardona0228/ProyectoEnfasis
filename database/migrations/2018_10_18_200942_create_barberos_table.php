@@ -15,7 +15,7 @@ class CreateBarberosTable extends Migration
     {
         Schema::create('barberos', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('documento', 10)->index();
+            $table->string('documento', 10);
             $table->string('nombres',40);
             $table->string('apellidos',40);
             $table->string('telefono',13);
@@ -25,14 +25,14 @@ class CreateBarberosTable extends Migration
             $table->string('nameUser',20);
             $table->string('password',10);
 
-            $table->string('sede_nit', 30)->index();
+            $table->unsignedInteger('sede_id');
 
             $table->unsignedInteger('cargo_id');
 
             $table->timestamps();
 
-            $table->foreign('sede_nit')
-            ->references('nit')
+            $table->foreign('sede_id')
+            ->references('id')
             ->on('sedes');
 
             $table->foreign('cargo_id')

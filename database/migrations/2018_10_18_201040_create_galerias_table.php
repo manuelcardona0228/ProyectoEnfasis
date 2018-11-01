@@ -17,11 +17,11 @@ class CreateGaleriasTable extends Migration
             $table->increments('id');
             $table->string('nombre',20);
             $table->string('descripcion',100);
-            $table->string('barbero_documento', 10)->index();
+            $table->unsignedInteger('barbero_id');
             $table->timestamps();
 
-            $table->foreign('barbero_documento')
-            ->references('documento')
+            $table->foreign('barbero_id')
+            ->references('id')
             ->on('barberos');
         });
     }

@@ -12,8 +12,17 @@ class Sede extends Model
      * @var array
      */
     protected $fillable = [
-        'nit','razonSocial', 'direccion','telefono','barberia_nit','administrador_documento'
+        'nit','razonSocial', 'direccion','telefono','barberia_id','administrador_id'
     ];
     
+    public function admin()
+    {
+        return $this->belongsTo('App\Admin');
+    }
+
+    public function barberia()
+    {
+        return $this->belongsTo('App\Barberia');
+    }
 
 }

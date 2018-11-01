@@ -12,6 +12,6 @@ class Galeria extends Model
      * @var array
      */
     protected $fillable = [
-        'nombre', 'descripcion', 'barbero_documento'
+        'nombre', 'descripcion', 'barbero_id'
     ];
 }

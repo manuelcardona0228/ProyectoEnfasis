@@ -12,7 +12,7 @@ class Turno extends Model
      * @var array
      */
     protected $fillable = [
-        'fecha','barbero_documento','servicio_id','user_id'
+        'fecha','barbero_id','servicio_id','user_id'
     ];
 
     

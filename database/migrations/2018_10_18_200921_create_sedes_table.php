@@ -16,23 +16,23 @@ class CreateSedesTable extends Migration
         Schema::create('sedes', function (Blueprint $table) {
             $table->increments('id');
 
-            $table->string('nit',30)->index();
+            $table->string('nit',30);
             $table->string('razonSocial',40);
             $table->string('direccion',64);
             $table->string('telefono',10);
 
-            $table->string('barberia_nit', 30)->index();
-            $table->string('admin_documento', 10)->index();
+            $table->unsignedInteger('barberia_id');
+            $table->unsignedInteger('admin_id');
 
             $table->timestamps();
 
-            $table->foreign('barberia_nit')
-            ->references('nit')
+            $table->foreign('barberia_id')
+            ->references('id')
             ->on('barberias');
 
 
-            $table->foreign('admin_documento')
-            ->references('documento')
+            $table->foreign('admin_id')
+            ->references('id')
             ->on('admins');
 
             /**

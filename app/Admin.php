@@ -34,4 +34,8 @@ class Admin extends Model
         return $this->belongsTo('App\Barberia');
     }
 
+    public function sede()
+    {
+        return $this->hasMany('App\Sede');
+    }
 }

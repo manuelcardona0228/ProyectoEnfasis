@@ -3,7 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Sede;
+use App\Admin;
+use App\Barberia;
 use Illuminate\Http\Request;
+use Session;
 
 class SedeController extends Controller
 {
@@ -25,7 +28,9 @@ class SedeController extends Controller
      */
     public function create()
     {
-        return view('administradores.create');
+        $admin = Admin::all()->pluck('documento', 'id');
+        $barberia = Barberia::all()->pluck('razonSocial', 'id');
+        return view('sedes.create', compact('admin', 'barberia'));
     }
 
     /**
@@ -38,9 +43,12 @@ class SedeController extends Controller
     {
         $input = $request->all();
 
-        $sede = new Barberia();
-        $sede ->fill($imput);
-        $sede ->user_id = Auth::id();
+        $sede = new Sede();
+        $nombre = $request->input('barberia_id');
+        $cedula = $request->input('admin_id');
+        $sede ->fill($input);
+        $sede ->barberia_id = $nombre;
+        $sede ->admin_id = $cedula;
         $sede ->save();
 
         Session::flash('estado','la sede se ha agregado con éxito!');
@@ -66,12 +74,16 @@ class SedeController extends Controller
      */
     public function edit(Sede $sede)
     {
-        $user = User::all()->pluck('nit');
-        $user = User::all()->pluck('razonSocial');
-        $user = User::all()->pluck('direccion');
-        $user = User::all()->pluck('telefono');
-        $user = User::all()->pluck('barberia_nit');
-        $user = User::all()->pluck('administrador_documento');
+        //$user = User::all()->pluck('nit');
+        //$user = User::all()->pluck('razonSocial');
+        //$user = User::all()->pluck('direccion');
+        //$user = User::all()->pluck('telefono');
+        //$user = User::all()->pluck('barberia_nit');
+        //$user = User::all()->pluck('administrador_documento');
+        $admin = Admin::all()->pluck('nombres', 'id');
+        $barberia = Barberia::all()->pluck('razonSocial', 'id');
+
+        return view('sedes.edit', compact('sede','admin','barberia'));
     }
 
     /**
@@ -103,7 +115,7 @@ class SedeController extends Controller
     {
         $sede->delete();
 
-        Session::flash('estado', 'la sede fue borrado exitosamente!');
+        Session::flash('estado', 'la sede fue borrada exitosamente!');
 
         return redirect('/sedes');
     }

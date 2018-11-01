@@ -18,7 +18,7 @@ class CreateTurnosTable extends Migration
             $table->increments('id');
             $table->timestamp('fecha');
 
-            $table->string('barbero_documento', 10)->index();
+            $table->unsignedInteger('barbero_id');
 
             $table->unsignedInteger('servicio_id');
             
@@ -26,8 +26,8 @@ class CreateTurnosTable extends Migration
 
             $table->timestamps();
 
-            $table->foreign('barbero_documento')
-            ->references('documento')
+            $table->foreign('barbero_id')
+            ->references('id')
             ->on('barberos');
 
 

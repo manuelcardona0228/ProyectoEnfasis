@@ -12,7 +12,7 @@ class Barbero extends Model
      * @var array
      */
     protected $fillable = [
-        'nombres', 'correo', 'calificacion','password','documento','apellidos','fechaNac','calificacion','nameUser','sede_nit','cargo_id'
+        'nombres', 'correo', 'calificacion','password','documento','apellidos','fechaNac','calificacion','nameUser','sede_id','cargo_id'
     ];
 
     /**
