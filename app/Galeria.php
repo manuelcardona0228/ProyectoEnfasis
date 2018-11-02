@@ -14,4 +14,9 @@ class Galeria extends Model
     protected $fillable = [
         'nombre', 'descripcion', 'barbero_id'
     ];
+
+    public function barbero()
+    {
+        return $this->belongsTo('App\Barbero');
+    }
 }

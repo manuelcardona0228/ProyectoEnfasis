@@ -33,4 +33,9 @@ class Barbero extends Model
     {
         return $this->belongsTo('App\Cargo');
     }
+
+    public function galeria()
+    {
+        return $this->belongsTo('App\Galeria');
+    }
 }

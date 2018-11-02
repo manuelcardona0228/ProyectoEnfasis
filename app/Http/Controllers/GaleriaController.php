@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Galeria;
+use App\Barbero;
 use Illuminate\Http\Request;
+use Session;
 
 class GaleriaController extends Controller
 {
@@ -25,7 +27,8 @@ class GaleriaController extends Controller
      */
     public function create()
     {
-        return view('galerias.create');
+        $barbero = Barbero::all()->pluck('nombres', 'id');
+        return view('galerias.create', compact('barbero'));
 
     }
 
@@ -38,10 +41,10 @@ class GaleriaController extends Controller
     public function store(Request $request)
     {
         $input = $request->all();
-
-        $galeria = new Turno();
-        $galeria ->fill($imput);
-        $galeria ->user_id = Auth::id();
+        $barbero = $request->input('barbero_id');
+        $galeria = new Galeria();
+        $galeria ->fill($input);
+        $galeria ->barbero_id = $barbero;
         $galeria ->save();
 
         Session::flash('estado','la galeria ha sido añadida con éxito');
@@ -67,10 +70,12 @@ class GaleriaController extends Controller
      */
     public function edit(Galeria $galeria)
     {
-        $user = User::all()->pluck('nombre');
-        $user = User::all()->pluck('descripcion');
-        $user = User::all()->pluck('barbero_documento');
+        //$user = User::all()->pluck('nombre');
+        //$user = User::all()->pluck('descripcion');
+        //$user = User::all()->pluck('barbero_documento');
 
+        $barbero = Barbero::all()->pluck('nombres', 'id');
+        return view('galerias.edit', compact('galeria','barbero'));
     }
 
     /**
