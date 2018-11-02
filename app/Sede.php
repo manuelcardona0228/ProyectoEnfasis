@@ -25,4 +25,9 @@ class Sede extends Model
         return $this->belongsTo('App\Barberia');
     }
 
+    public function barberos()
+    {
+        return $this->hasMany('App\Barberos');
+    }
+
 }

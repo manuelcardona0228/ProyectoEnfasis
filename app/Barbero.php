@@ -12,7 +12,7 @@ class Barbero extends Model
      * @var array
      */
     protected $fillable = [
-        'nombres', 'correo', 'calificacion','password','documento','apellidos','fechaNac','calificacion','nameUser','sede_id','cargo_id'
+        'documento','nombres', 'apellidos', 'telefono', 'correo' , 'fechaNac', 'calificacion', 'nameUser', 'password', 'sede_id', 'cargo_id'
     ];
 
     /**
@@ -23,4 +23,14 @@ class Barbero extends Model
     protected $hidden = [
         'password'
     ];
+
+    public function sede()
+    {
+        return $this->belongsTo('App\Sede');
+    }
+
+    public function cargo()
+    {
+        return $this->belongsTo('App\Cargo');
+    }
 }

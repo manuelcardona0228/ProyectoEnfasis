@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Barbero;
+use App\Sede;
 use Illuminate\Http\Request;
+use Session;
 
 class BarberoController extends Controller
 {
@@ -25,7 +27,8 @@ class BarberoController extends Controller
      */
     public function create()
     {
-        return view('barberos.create');
+        $sede = Sede::all()->pluck('razonSocial', 'id');
+        return view('barberos.create', compact('sede'));
     }
 
     /**
@@ -37,10 +40,11 @@ class BarberoController extends Controller
     public function store(Request $request)
     {
         $input = $request->all();
-
+        $sede = $request->input('sede_id');
         $barbero = new Barbero();
-        $barbero ->fill($imput);
-        $barbero ->user_id = Auth::id();
+        $barbero ->fill($input);
+        $barbero ->sede_id = $sede;
+        $barbero ->cargo_id = 2;
         $barbero ->save();
 
         Session::flash('estado','el barbero ha sido creado con éxito!');
@@ -66,15 +70,16 @@ class BarberoController extends Controller
      */
     public function edit(Barbero $barbero)
     {
-        $user = User::all()->pluck('documento');
-        $user = User::all()->pluck('nombres');
-        $user = User::all()->pluck('apellido');
-        $user = User::all()->pluck('telefono');
-        $user = User::all()->pluck('correo');
-        $user = User::all()->pluck('fechaNac');
-        $user = User::all()->pluck('nameUser');
-        $user = User::all()->plunk('password');
-        $user = User::all()->plunk('sede_nit');
+        //$user = User::all()->pluck('documento');
+        //$user = User::all()->pluck('nombres');
+        //$user = User::all()->pluck('apellido');
+        //$user = User::all()->pluck('telefono');
+        //$user = User::all()->pluck('correo');
+        //$user = User::all()->pluck('fechaNac');
+        //$user = User::all()->pluck('nameUser');
+        //$user = User::all()->plunk('password');
+        $sede = Sede::all()->pluck('razonSocial', 'id');
+        return view('barberos.edit', compact('barbero','sede'));
     }
 
     /**
@@ -88,7 +93,7 @@ class BarberoController extends Controller
     {
         $input = $request->all();
   
-        $administrador->fill($input)->save();
+        $barbero->fill($input)->save();
   
         Session::flash('barberos', 'el barbero fue actualizado correctamente!');
 
