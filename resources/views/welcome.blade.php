@@ -4,7 +4,7 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>Sistema Barberias</title>
+    <title>BarberSys</title>
 </head>
 <body>
     <!-- Barra De Navegacion -->
@@ -18,13 +18,13 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav">
                 <li class="nav-item active">
-                    <a class="nav-link" href="/"> Sistema Barberias </a>
-                </li>
-                <li class="nav-item active">
-                    <a class="nav-link" href="/login"> Iniciar Sesión </a>
+                    <a class="nav-link" href="/"> BarberSys </a>
                 </li>    
                 </ul>
                 <ul class="navbar-nav ml-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="/login"> Iniciar Sesión </a>
+                </li>
                 <li class="nav-item active">
                     <a class="nav-link" href="#header"> Noticias </a>
                 </li>
@@ -122,7 +122,7 @@
                                 <div class="form-group">
                                     <textarea cols="30" rows="10" placeholder="Mensaje" class="form-control"></textarea>
                                 </div>
-                                <button type="submit" class="btn btn-outline-dark btn-block"> 
+                                <button type="submit" class="btn btn-outline-light btn-block"> 
                                     Enviar
                                 </button>
                             </div>

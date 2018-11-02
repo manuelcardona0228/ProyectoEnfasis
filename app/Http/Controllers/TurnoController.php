@@ -4,6 +4,10 @@ namespace App\Http\Controllers;
 
 use App\Turno;
 use Illuminate\Http\Request;
+use App\Barbero;
+use App\Servicio;
+use App\User;
+use Session;
 
 class TurnoController extends Controller
 {
@@ -25,7 +29,10 @@ class TurnoController extends Controller
      */
     public function create()
     {
-        return view('turnos.create');
+        $barbero = Barbero::all()->pluck('nombres', 'id');
+        $servicio = Servicio::all()->pluck('nombre', 'id');
+        $usuario = User::all()->pluck('name', 'id');
+        return view('turnos.create', compact('barbero', 'servicio', 'usuario'));
     }
 
     /**
@@ -39,9 +46,15 @@ class TurnoController extends Controller
         $input = $request->all();
 
         $turno = new Turno();
-        $galeria ->fill($imput);
-        $galeria ->user_id = Auth::id();
-        $galeria ->save();
+        $barbero = $request->input('barbero_id');
+        $servicio = $request->input('servicio_id');
+        $usuario = $request->input('user_id');
+        $turno ->fill($input);
+        $turno ->barbero_id = $barbero;
+        $turno ->servicio_id = $servicio;
+        $turno ->user_id = $usuario;
+
+        $turno ->save();        
 
         Session::flash('estado','el turno ha sido añadido con éxito');
         return redirect('/turnos');
@@ -66,10 +79,10 @@ class TurnoController extends Controller
      */
     public function edit(Turno $turno)
     {
-        $user = User::all()->pluck('fecha');
-        $user = User::all()->pluck('barbero_documento');
-        $user = User::all()->pluck('user_id');
-        $user = User::all()->pluck('servicio_id');
+        $barbero = Barbero::all()->pluck('nombres', 'id');
+        $servicio = Servicio::all()->pluck('nombre', 'id');
+        $usuario = User::all()->pluck('name', 'id');
+        return view('turnos.edit', compact('turno', 'barbero', 'servicio', 'usuario'));
     }
 
     /**

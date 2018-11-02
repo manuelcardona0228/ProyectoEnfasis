@@ -15,4 +15,8 @@ class Servicio extends Model
         'nombre','descripcion','valor'
     ];
     
+    public function turno()
+    {
+        return $this->belongsTo('App\Turno');
+    }
 }

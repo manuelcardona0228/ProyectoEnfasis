@@ -38,4 +38,9 @@ class Barbero extends Model
     {
         return $this->belongsTo('App\Galeria');
     }
+
+    public function turnos()
+    {
+        return $this->hasMany('App\Turno');
+    }
 }
