@@ -11,7 +11,7 @@
     <td>{{ $galeria->descripcion }}</td>
   </tr>
   <tr>
-    <td style="width: 200px;">Descripción</td>
+    <td style="width: 200px;">Barbero</td>
     <td>{{ $galeria->barbero->nombres }}</td>
   </tr>
 <tr>

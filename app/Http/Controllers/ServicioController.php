@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Servicio;
 use Illuminate\Http\Request;
+use Session;
 
 class ServicioController extends Controller
 {
@@ -39,8 +40,7 @@ class ServicioController extends Controller
         $input = $request->all();
 
         $servicio = new Servicio();
-        $servicio ->fill($imput);
-        $servicio ->user_id = Auth::id();
+        $servicio ->fill($input);
         $servicio ->save();
 
         Session::flash('estado','el servicio ha sido añadido con éxito');
@@ -66,9 +66,7 @@ class ServicioController extends Controller
      */
     public function edit(Servicio $servicio)
     {
-        $user = User::all()->pluck('nombre');
-        $user = User::all()->pluck('descripcion');
-        $user = User::all()->pluck('valor');
+        return view('servicios.edit', compact('servicio'));
     }
 
     /**
