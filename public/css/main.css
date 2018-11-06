@@ -57,8 +57,27 @@ footer{
     background: url(../plugins/bootstrap/img/FondoLogginDos.jpg);
     
 }
+#body-crearAdmin{
+    background: url(../plugins/bootstrap/img/barber2.jpg);
+}
+#body-indexAdmin{
+    margin-top: 50px;
+}
 
-/** Estilos para la pagina al loggearse */
+#body-indexUser{
+    margin-top: 50px;
+}
+
+#body-editAdmin{
+    background: url(../plugins/bootstrap/img/barber2.jpg);
+}
+
+#body-verAdmin{
+    background: url(../plugins/bootstrap/img/barber2.jpg);
+    margin-top: 50px;
+}
+
+/** Estilos para la pagina al iniciar Sesion */
 
 .sidebar{
     background: black;
@@ -72,6 +91,11 @@ footer{
 #card-accordion{
     background: black;
     padding: 0%;
+}
+
+.h2-carrusel{
+
+    color: black
 }
 
 .accordion-btn{

@@ -13,7 +13,7 @@
     <!-- Navegacion -->
     <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
         <div class="container">
-            <a class="navbar-brand" href="/">Sistema Barberias</a>
+            <a class="navbar-brand" href="/">BarberSys</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -134,9 +134,6 @@
             </div>
         </div>
     </div>
-    <main class="py-4">
-        @yield('content')
-    </main>
     </div>
 </body>
 </html>

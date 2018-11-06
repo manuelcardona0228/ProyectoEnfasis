@@ -28,6 +28,11 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
+    public function cargo()
+    {
+        return $this->belongsTo('App\Cargo');
+    }
+
     public function turnos()
     {
         return $this->hasMany('App\Turno');

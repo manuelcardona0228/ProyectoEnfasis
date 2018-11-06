@@ -15,7 +15,7 @@ class Turno extends Model
         'fecha','barbero_id','servicio_id','user_id'
     ];
 
-    public function servicio()
+    public function servicio    ()
     {
         return $this->belongsTo('App\Servicio');
     }

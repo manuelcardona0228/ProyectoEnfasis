@@ -31,6 +31,8 @@ Route::resource('usuarios', 'UsuarioController');
 
 Route::resource('barberias', 'BarberiaController');
 
+Route::resource('users', 'UserController');
+
 Route::resource('sedes', 'SedeController');
 
 Route::resource('galerias', 'GaleriaController');

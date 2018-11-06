@@ -19,4 +19,9 @@ class Cargo extends Model
     {
         return $this->hasMany('App\Barbero');
     }
+
+    public function users()
+    {
+        return $this->hasMany('App\User');
+    }
 }
