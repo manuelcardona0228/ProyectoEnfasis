@@ -22,8 +22,9 @@ class CreateAdminsTable extends Migration
             $table->String('correo', 64);
             $table->date('fechaNac');
             $table->String('nameUser', 20);
-            $table->String('password', 20);
+            $table->String('password');
             $table->unsignedInteger('cargo_id');
+            $table->rememberToken();
             $table->timestamps();
 
             $table->foreign('cargo_id')

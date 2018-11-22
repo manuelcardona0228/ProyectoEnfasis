@@ -4,16 +4,26 @@
 <head>
 
     <meta charset="UTF-8">
-    
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Titillium+Web" rel="stylesheet">
+
+    <!-- Bootstrap 4 -->
+    <link rel="stylesheet" href="{{ asset('/plugins/bootstrap/css/bootstrap.css') }}">
+
+    <!-- Scroll Reveal -->
+    <script src="https://unpkg.com/scrollreveal"></script>
+
     <!-- CSS Personalizados -->
-    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="/css/main.css">
+
 </head>
 <body>
 
 <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
         <div class="container">
         <a class="navbar-brand" ></a>
-            <img src="plugins/bootstrap/img/BarberSys 1.0 Logo Icono.png" width="40" height="40" class="d-inline-block align-top" alt="">
+            <img src="/plugins/bootstrap/img/BarberSys 1.0 Logo Icono.png" width="40" height="40" class="d-inline-block align-top" alt="">
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -218,38 +228,6 @@
                 </div>
             </div>
         </div>
-        <div class="col-md-10 offset-md-2 mt-5 main">
-            <h2 class="h2-carrusel mt-2" style="text-align: center;">Promociones</h2>
-            <div class="card">
-                <div id="carruselPrincipal" class="carousel" data-ride="carousel">
-                    <ol class="carousel-indicators">
-                    <li data-target="#carruselPrincipal" data-slide-to="0" class="active"></li>
-                    <li data-target="#carruselPrincipal" data-slide-to="1"></li>
-                    <li data-target="#CarruselPrincipal" data-slide-to="2"></li>
-                    </ol>
-                    <div class="carousel-inner">
-                    <div class="carousel-item active">
-                        <img class="d-block w-100" src="plugins/bootstrap/img/banner1.png" alt="Promocion 1">
-                        <div class="carousel-caption">
-                        </div>
-                    </div>
-                    <div class="carousel-item">
-                        <img class="d-block w-100" src="plugins/bootstrap/img/banner2.png" alt="Promocion 2">
-                        <div class="carousel-caption my-6">
-                        </div>
-                    </div>
-                    </div>
-                    <a class="carousel-control-prev" href="#carruselPrincipal" role="button" data-slide="prev">
-                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                    <span class="sr-only">Anterior</span>
-                    </a>
-                    <a class="carousel-control-next" href="#carruselPrincipal" role="button" data-slide="next">
-                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                    <span class="sr-only">Siguiente</span>
-                    </a>
-                </div>
-            </div>
-        </div>
             <div class="card-body">
                 @if (session('status'))
                     <div class="alert alert-success" role="alert">
@@ -257,6 +235,7 @@
                     </div>
                 @endif
                 </div>
+                @yield('content')
             </div>
         </div>
         </div>

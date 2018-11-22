@@ -7,6 +7,7 @@ use App\Admin;
 use App\user;
 use App\Cargo;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 //use App\Http\Request\AdministradoresRequest;
 use Session;
 
@@ -42,9 +43,11 @@ class AdminController extends Controller
     public function store(Request $request)
     {
         $input = $request->all();
-
+        $contraseña = $request->input("password");
+        $contraseñaEncriptada = Hash::make($contraseña);
         $admin = new Admin();
         $admin->fill($input);
+        $admin->password = $contraseñaEncriptada;
         $admin->cargo_id = 1;
         $admin->save();
 

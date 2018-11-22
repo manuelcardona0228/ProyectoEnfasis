@@ -20,3 +20,5 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 Route::apiResource('barberos', 'Api\BarberoController');
 
 Route::apiResource('turnos', 'Api\TurnoController');
+
+Route::apiResource('users', 'Api\UserController');

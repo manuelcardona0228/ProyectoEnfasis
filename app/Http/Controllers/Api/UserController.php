@@ -4,10 +4,9 @@ namespace App\Http\Controllers\Api;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\User;
 
-use App\Turno;
-
-class TurnoController extends Controller
+class UserController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,9 +15,8 @@ class TurnoController extends Controller
      */
     public function index()
     {
-        $turnos = Turno::all();
-
-        return response()->json($turnos, 200);
+        $users = User::all();
+        return response()->json($users, 200);
     }
 
     /**
@@ -31,12 +29,12 @@ class TurnoController extends Controller
     {
         $input = $request->all();
 
-        $turno = new Turno();
-        $turno->fill($input);
+        $user = new User();
+        $user->fill($input);
         
-        $turno->save();
+        $user->save();
 
-        return response()->json($turno, 200);
+        return response()->json($user, 200);
     }
 
     /**
@@ -47,10 +45,10 @@ class TurnoController extends Controller
      */
     public function show($id)
     {
-        $turno = Turno::find($id);
+        $user = User::find($id);
 
-        if($turno != null)  
-            return response()->json($turno, 200);
+        if($user != null)  
+            return response()->json($user, 200);
         else
         {
             $datos = ['mensaje' => 'No lo encontré', 'error' => true, 'id' => 666];
@@ -66,13 +64,13 @@ class TurnoController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Turno $turno)
+    public function update(Request $request, User $user)
     {
         $input = $request->all();
 
-        $turno->update($input);
+        $user->update($input);
 
-        return response()->json($turno, 200);
+        return response()->json($user, 200);
     }
 
     /**
@@ -81,10 +79,10 @@ class TurnoController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Barbero $barbero)
+    public function destroy($id)
     {
-        $turno->delete();
+        $user->delete();
 
-        return response()->json($turno, 200);
+        return response()->json($user, 200);
     }
 }

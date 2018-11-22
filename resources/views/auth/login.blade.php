@@ -20,9 +20,6 @@
                 <li class="nav-item active">
                     <a class="nav-link" href="/register"> Registrate </a>
                 </li>
-                <li class="nav-item active">
-                    <a class="nav-link" href="/homeAd"> HomeAdmin </a>
-                </li>
                 </ul>
             </div>
         </div>

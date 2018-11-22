@@ -17,6 +17,8 @@ Route::get('/', function () {
 
 Auth::routes();
 
+Route::post('/enviar', 'ContactoController@enviarMensaje');
+
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/homeAd', 'HomeAdminController@inicio');
@@ -27,7 +29,7 @@ Route::resource('admins', 'AdminController');
 
 Route::resource('barberos', 'BarberoController');
 
-Route::resource('usuarios', 'UsuarioController');
+Route::resource('usuarios', 'UserController');
 
 Route::resource('barberias', 'BarberiaController');
 

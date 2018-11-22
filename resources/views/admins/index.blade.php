@@ -1,26 +1,12 @@
-@extends('layouts.app')
+@extends('PruebaLayaud.app')
 
 @section('content')
-<!DOCTYPE html>
-<html lang="es">
-<head>
 
-    <meta charset="UTF-8">
-    
-    <!-- CSS Personalizados -->
-    <link rel="stylesheet" href="../css/main.css">
-    
-</head>
-<body id="body-indexAdmin">
-
-<div class="container-fluid">
-    <div class="row">
-        <div class="col-md-2">
-        </div>
-        <div class="col-md-10">
+    <div class="col-md-10 offset-md-2 mt-4 main cuerpo-dos">
             <h1>Lista de Administradores</h1>
+            <hr>
             <p class="lead"> 
-            <a href="{!! url('admins/create') !!}" class="btn btn-success">Agregar Administrador</a></p>
+            <a href="{!! url('admins/create') !!}" class="btn btn-success btn-block">Agregar Administrador</a></p>
             <hr>
             <table class="table">
                 <thead class="thead-dark">
@@ -55,9 +41,4 @@
             </table>
         {{ $admins->links() }}
         </div>
-    </div>
-</div>
-
-</body>
-</html>
-@stop
+@endsection

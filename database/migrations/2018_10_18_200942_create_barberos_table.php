@@ -29,6 +29,8 @@ class CreateBarberosTable extends Migration
 
             $table->unsignedInteger('cargo_id');
 
+            $table->rememberToken();
+
             $table->timestamps();
 
             $table->foreign('sede_id')

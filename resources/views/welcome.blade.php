@@ -11,7 +11,7 @@
     <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
         <div class="container">
             <a class="navbar-brand" ></a>
-            <img src="plugins/bootstrap/img/barberIcon.png" width="30" height="30" class="d-inline-block align-top" alt="">
+            <img src="plugins/bootstrap/img/BarberSys 1.0 Logo Icono.png" width="40" height="40" class="d-inline-block align-top" alt="">
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -45,13 +45,13 @@
             <div class="row">
                 <div class="col-md-6">
                     <div class="header-content-left">
-                        <img src="plugins/bootstrap/img/imgInicio.png" style="width: 40%;">
+                        <img src="plugins/bootstrap/img/BarberSys1.0.png" style="width: 80%;">
                     </div>
                 </div>
                 <div class="col-md-6">
                     <div class="header-content-right">
-                        <h1 class="display-4">Lorem ipsum dolor</h1>
-                        <p class="mt-5">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas aspernatur veniam expedita, maxime vero ad quam, ipsam alias consectetur necessitatibus harum et corrupti unde saepe, iste adipisci porro nam commodi?</p>
+                        <h1 class="display-4">BarberSys</h1>
+                        <p class="mt-5">Queremos hacerte sentir bien. en barbersys encontraras los mejores servicios y los mejores profesionales para que te hagas notar y sobresalgas en la sociedad gracias a nuestros excelentes cortes de cabello y barba</p>
                         <a href="#" class="btn btn-lg mt-2 header-btn">Leer Más</a>
                     </div>
                 </div>
@@ -63,7 +63,7 @@
     <section id="testimonial">
         <div class="container">
             <p class="h2 mb-2" style="color: #ffffff">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit itaque facere ipsam, quisquam dolorem exercitationem quod necessitatibus alias rem accusantium et, tempora doloribus consectetur voluptas eveniet hic voluptates sequi. Ipsam?
+            hace tiempo estaba buscando un sitio donde realizaran cortes de cabello de alta calidad, en barbersys lo encontre, me gusta mucho los cortes originales y el uso de productos de alta calidad que aseguran los buenos resultados en las sesiones
             </p>
             <p class="h4" style="color: #ffffff">- Leonardo Lopez</p>
         </div>
@@ -80,8 +80,8 @@
                 </div>
                 <div class="col-md-6 my-auto">
                     <div class="info-right">
-                        <h2>Lorem ipsum dolor sit.</h2>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum ea assumenda nostrum, totam laudantium laborum asperiores quas officia illo repellat distinctio dolor ullam error culpa consectetur laboriosam corrupti velit omnis!. Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum ea assumenda nostrum, totam laudantium laborum asperiores quas officia illo repellat distinctio dolor ullam error culpa consectetur laboriosam corrupti velit omnis!</p>
+                        <h2>Pacinos.</h2>
+                        <p>Somos lideres en el mercado para productos del cuidad del cabello y barba!</p>
                         <a href="#" class="btn btn-outline-primary btn-lg info-one-btn">Leer Más</a>
                     </div>
                 </div>
@@ -94,12 +94,12 @@
         <div class="container">
             <div class="row my-5">
                 <div class="col-md-6 my-4">
-                    <h2>Lorem ipsum dolor sit.</h2>
-                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ducimus consequatur maxime iure praesentium tempora explicabo in id cupiditate illo numquam commodi quis sed reprehenderit corrupti accusantium cumque quia, ab quas. Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ducimus consequatur maxime iure praesentium tempora explicabo in id cupiditate illo numquam commodi quis sed reprehenderit corrupti accusantium cumque quia, ab quas.</p>
+                    <h2>Misión.</h2>
+                    <p>ser los mejores.</p>
                 </div>
                 <div class="col-md-6 my-4">
-                    <h2>Lorem ipsum dolor sit.</h2>
-                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ducimus consequatur maxime iure praesentium tempora explicabo in id cupiditate illo numquam commodi quis sed reprehenderit corrupti accusantium cumque quia, ab quas. Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ducimus consequatur maxime iure praesentium tempora explicabo in id cupiditate illo numquam commodi quis sed reprehenderit corrupti accusantium cumque quia, ab quas.</p>
+                    <h2>Visión.</h2>
+                    <p>dominar el mercado local y nacional.</p>
                 </div>
             </div>
         </div>
@@ -110,17 +110,21 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-5">
-                    <form class="card text-white bg-dark my-4">
+                    <form action="/enviar" method="post" class="card text-white bg-dark my-4">
+                    @csrf
                         <div class="card-header">Contacto</div>
                             <div class="card-body">
                                 <div class="form-group">
-                                    <input type="text" placeholder="Nombre" class="form-control">
+                                    <label for="NombreCorreo">Nombre</label>
+                                    <input type="text" placeholder="Nombre" class="form-control" name="name">
                                 </div>
                                 <div class="form-group">
-                                    <input type="email" placeholder="Email" class="form-control">
+                                    <label for="NombreEmail">Email</label>
+                                    <input type="email" placeholder="Email" class="form-control" name="email">
                                 </div>
                                 <div class="form-group">
-                                    <textarea cols="30" rows="10" placeholder="Mensaje" class="form-control"></textarea>
+                                    <label for="NombreMensaje">Mensaje</label>
+                                    <textarea cols="30" rows="10" placeholder="Mensaje" class="form-control" name="mensaje"></textarea>
                                 </div>
                                 <button type="submit" class="btn btn-outline-light btn-block"> 
                                     Enviar

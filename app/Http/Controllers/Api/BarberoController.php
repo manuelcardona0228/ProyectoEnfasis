@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Api;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
+use App\Barbero;
+
 class BarberoController extends Controller
 {
     /**
@@ -64,7 +66,7 @@ class BarberoController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Barbero $barbero)
     {
         $input = $request->all();
 
@@ -79,7 +81,7 @@ class BarberoController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Barbero $barbero)
     {
         $barbero->delete();
 
