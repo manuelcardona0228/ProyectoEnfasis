@@ -22,3 +22,5 @@ Route::apiResource('barberos', 'Api\BarberoController');
 Route::apiResource('turnos', 'Api\TurnoController');
 
 Route::apiResource('users', 'Api\UserController');
+
+Route::post('login', 'Api\LoginController@store');

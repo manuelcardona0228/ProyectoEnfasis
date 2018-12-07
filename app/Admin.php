@@ -3,8 +3,6 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Contracts\Auth\MustVerifyEmail;
-use Illuminate\Foundation\Auth\User as Authenticatable;
 
 class Admin extends Model
 {
@@ -14,7 +12,7 @@ class Admin extends Model
      * @var array
      */
     protected $fillable = [
-        'documento', 'nombres', 'apellidos','telefono','correo','fechaNac','nameUser','password','cargo_id'
+        'documento', 'nombres', 'apellidos','telefono','email','fechaNac','nameUser','password','cargo_id'
     ];
 
     /**

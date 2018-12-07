@@ -1,10 +1,11 @@
 @extends('PruebaLayaud.app')
 
 @section('content')
-        <div class="col-md-10 offset-md-2 mt-5 main">
+        <div class="col-md-10 offset-md-2 mt-5 main cuerpo-dos">
             <h1>Lista De Galerias</h1>
+            <hr>
             <p class="lead"> 
-            <a href="{!! url('galerias/create') !!}" class="btn btn-success">Agregar Galeria</a></p>
+            <a href="{!! url('galerias/create') !!}" class="btn btn-success btn-block">Crear Galeria</a></p>
             <hr>
             <table class="table">
                 <thead class="thead-dark">

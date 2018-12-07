@@ -76,7 +76,7 @@ class RegisterController extends Controller
             'email' => $data['email'],
             'fechaNac' => $data['fechaNac'],
             'nomUser' => $data['nomUser'],
-            'password' => Hash::make($data['password']),
+            'password' => md5($data['password']),//Hash::make($data['password']),
             'cargo_id' => 3,
         ]);
     }

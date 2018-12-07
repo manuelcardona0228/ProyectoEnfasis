@@ -5,7 +5,7 @@
         <h1>Lista de Usuarios</h1>
         <hr>
         <p class="lead"> 
-        <a href="{!! url('users/create') !!}" class="btn btn-success btn-block">Agregar Usuario</a></p>
+        <a href="{!! url('users/create') !!}" class="btn btn-success btn-block">Crear Usuario</a></p>
         <hr>
         <table class="table">
             <thead class="thead-dark">

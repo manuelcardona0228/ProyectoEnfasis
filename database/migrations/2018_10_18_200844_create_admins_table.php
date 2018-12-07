@@ -19,7 +19,7 @@ class CreateAdminsTable extends Migration
             $table->string('nombres', 40);
             $table->String('apellidos', 40);
             $table->String('telefono', 13);
-            $table->String('correo', 64);
+            $table->String('email', 64)->unique();
             $table->date('fechaNac');
             $table->String('nameUser', 20);
             $table->String('password');

@@ -34,7 +34,7 @@ return [
     | Supported: "session", "token"
     |
     */
-
+    
     'guards' => [
         'web' => [
             'driver' => 'session',
@@ -75,7 +75,7 @@ return [
         //     'table' => 'users',
         // ],
     ],
-
+    
     /*
     |--------------------------------------------------------------------------
     | Resetting Passwords

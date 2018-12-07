@@ -14,7 +14,7 @@
         <h1 class="lines-effect mt-2">Editar Administrador</h1>
         <hr>
             <div class="card">
-                <div class="card-header text-white bg-dark">{{ __('Especifique que información del administrador va a editar.') }}</div>
+                <div class="card-header text-white bg-dark">{{ __('Especifique que información que va a editar.') }}</div>
                 <div class="card-body">
                     {!! Form::model($admin, [
                     'method' => 'PUT',
@@ -42,8 +42,8 @@
                     </div>
 
                     <div class="form-group">
-                        {!! Form::label('correo', 'Correo', ['class' => 'control-label']) !!}
-                        {!! Form::email('correo', null, ['class' => 'form-control']) !!}
+                        {!! Form::label('email', 'Correo', ['class' => 'control-label']) !!}
+                        {!! Form::email('email', null, ['class' => 'form-control']) !!}
                     </div>
 
                     <div class="form-group">
@@ -67,7 +67,7 @@
                     </div>
 
                     {!! Form::submit('Actualizar', ['class' => 'btn btn-primary']) !!}
-                    <a href="{{ route('admins.index') }}" class="btn btn-secondary">Cancelar</a>
+                    <a href="{{ route('admins.index') }}" class="btn btn-secondary">Volver</a>
 
                     {!! Form::close() !!}
                 </div>

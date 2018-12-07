@@ -9,12 +9,11 @@
     </div>
     @endif
 
-    <div class="col-md-10 offset-md-2 mt-5 main">
-        <h1>Agregar una Servicio</h1>
-        <p class="lead">Especifique la información del servicio a crear.</p>
+    <div class="col-md-10 offset-md-2 mt-5 main cuerpo-dos">
+        <h1 class="lines-effect">Crear Servicio</h1>
         <hr>
         <div class="card">
-            <div class="card-header bg-ligth">{{ __('Especifique la información de el servicio a crear.') }}</div>
+            <div class="card-header text-white bg-dark">{{ __('Especifique la información de el servicio a crear.') }}</div>
                 <div class="card-body">
                     {!! Form::open(['route' => 'servicios.store']) !!}
 
@@ -35,7 +34,7 @@
 
 
                     {!! Form::submit('Crear', ['class' => 'btn btn-primary']) !!}
-
+                    <a href="{{ route('servicios.index') }}" class="btn btn-secondary">Volver</a>
                     {!! Form::close() !!}
             </div>
         </div>

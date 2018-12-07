@@ -15,7 +15,7 @@
         <p class="lead"> 
         <hr>
         <div class="card">
-            <div class="card-header text-white bg-dark">{{ __('Especifique la información del cargo a editar.') }}</div>
+            <div class="card-header text-white bg-dark">{{ __('Especifique la información que va a editar.') }}</div>
                 <div class="card-body">
                     {!! Form::model($cargo, [
                         'method' => 'PUT',
@@ -29,7 +29,7 @@
                     </div>
 
                     {!! Form::submit('Actualizar', ['class' => 'btn btn-primary']) !!}
-                    <a href="{{ route('cargos.index') }}" class="btn btn-secondary">Cancelar</a>
+                    <a href="{{ route('cargos.index') }}" class="btn btn-secondary">Volver</a>
 
                     {!! Form::close() !!}
             </div>

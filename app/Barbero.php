@@ -4,6 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
+
 class Barbero extends Model
 {
     /**
@@ -12,7 +13,7 @@ class Barbero extends Model
      * @var array
      */
     protected $fillable = [
-        'documento','nombres', 'apellidos', 'telefono', 'correo' , 'fechaNac', 'calificacion', 'nameUser', 'password', 'sede_id', 'cargo_id'
+        'documento','nombres', 'apellidos', 'telefono', 'email' , 'fechaNac', 'calificacion', 'nameUser', 'password', 'barberia_id', 'cargo_id'
     ];
 
     /**
@@ -24,9 +25,9 @@ class Barbero extends Model
         'password'
     ];
 
-    public function sede()
+    public function barberia()
     {
-        return $this->belongsTo('App\Sede');
+        return $this->belongsTo('App\Barberia');
     }
 
     public function cargo()

@@ -10,13 +10,12 @@
     </div>
     @endif
 
-    <div class="col-md-10 offset-md-2 mt-5 main">
-        <h1>Editar Turno</h1>
+    <div class="col-md-10 offset-md-2 mt-5 main cuerpo-dos">
+        <h1 class="lines-effect">Editar Turno</h1>
         <p class="lead"> 
-        <a href="{{ route('turnos.index') }}">Volver.</a></p>
         <hr>
         <div class="card">
-            <div class="card-header bg-ligth">{{ __('Especifique la información del cargo a editar.') }}</div>
+            <div class="card-header text-white bg-dark">{{ __('Especifique la información que va a editar.') }}</div>
                 <div class="card-body">
                     {!! Form::model($turno, [
                         'method' => 'PUT',
@@ -44,7 +43,7 @@
                     </div>
 
                     {!! Form::submit('Actualizar', ['class' => 'btn btn-primary']) !!}
-                    <a href="{{ route('turnos.index') }}" class="btn btn-secondary">Cancelar</a>
+                    <a href="{{ route('turnos.index') }}" class="btn btn-secondary">Volver</a>
 
                     {!! Form::close() !!}
             </div>

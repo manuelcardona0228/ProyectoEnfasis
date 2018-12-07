@@ -20,4 +20,9 @@ class Barberia extends Model
     {
         return $this->hasMany('App\Sede');
     }
+
+    public function barberos()
+    {
+        return $this->hasMany('App\Barberos');
+    }
 }

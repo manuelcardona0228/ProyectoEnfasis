@@ -4,7 +4,7 @@
     <div class="col-md-10 offset-md-2 mt-5 main cuerpo-dos">
     <h1 class="lines-effect">Lista de barberias</h1>
     <hr>
-    <a href="{!! url('barberias/create') !!}" class="btn btn-success btn-block">Agregar Barberia</a></p>
+    <a href="{!! url('barberias/create') !!}" class="btn btn-success btn-block">Crear Barberia</a></p>
     <hr>
         <table class="table">
             <thead class="thead-dark">

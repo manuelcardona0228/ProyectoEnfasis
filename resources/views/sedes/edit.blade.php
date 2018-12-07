@@ -10,13 +10,11 @@
     </div>
     @endif
 
-    <div class="col-md-10 offset-md-2 mt-5 main">
-        <h1>Editar Sede</h1>
-        <p class="lead"> 
-        <a href="{{ route('sedes.index') }}">Volver.</a></p>
+    <div class="col-md-10 offset-md-2 mt-5 main cuerpo-dos">
+        <h1 class="lines-effect mt-2">Editar Sede</h1> 
         <hr>
         <div class="card">
-            <div class="card-header bg-ligth">{{ __('Especifique la información del cargo a editar.') }}</div>
+            <div class="card-header text-white bg-dark">{{ __('Especifique la información que va a editar.') }}</div>
                 <div class="card-body">
                     {!! Form::model($sede, [
                         'method' => 'PUT',
@@ -55,7 +53,7 @@
                     </div>
 
                     {!! Form::submit('Actualizar', ['class' => 'btn btn-primary']) !!}
-                    <a href="{{ route('sedes.index') }}" class="btn btn-secondary">Cancelar</a>
+                    <a href="{{ route('sedes.index') }}" class="btn btn-secondary">Volver</a>
 
                     {!! Form::close() !!}
             </div>

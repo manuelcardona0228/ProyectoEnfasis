@@ -11,7 +11,7 @@
 
     
     <div class="col-md-10 offset-md-2 mt-5 main cuerpo-dos">
-        <h1>Agregar un Barbero</h1>
+        <h1>Agregar Barbero</h1>
         <hr>
         <div class="card">
             <div class="card-header text-white bg-dark">{{ __('Especifique la información del barbero a crear.') }}</div>
@@ -39,8 +39,8 @@
                 </div>
 
                 <div class="form-group">
-                    {!! Form::label('correo', 'E-mail', ['class' => 'control-label']) !!}
-                    {!! Form::email('correo', null, ['class' => 'form-control']) !!}
+                    {!! Form::label('email', 'E-mail', ['class' => 'control-label']) !!}
+                    {!! Form::email('email', null, ['class' => 'form-control']) !!}
                 </div>
 
                 <div class="form-group">
@@ -64,8 +64,8 @@
                 </div>
 
                 <div class="form-group">
-                    {!! Form::label('sede_id', 'Sede', ['class' => 'control-label']) !!}
-                    {!! Form::select('sede_id', $sede, $sede ,['class' => 'form-control chosen-type', 'placeholder' => 'Seleccione La Sede...']) !!}
+                    {!! Form::label('baberia_id', 'Barberia', ['class' => 'control-label']) !!}
+                    {!! Form::select('barberia_id', $barberia, $barberia ,['class' => 'form-control chosen-type', 'placeholder' => 'Seleccione La Barberia...']) !!}
                 </div>
 
                 {!! Form::submit('Crear', ['class' => 'btn btn-primary']) !!}

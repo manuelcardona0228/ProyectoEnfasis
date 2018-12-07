@@ -6,7 +6,7 @@
             <h1>Lista de Administradores</h1>
             <hr>
             <p class="lead"> 
-            <a href="{!! url('admins/create') !!}" class="btn btn-success btn-block">Agregar Administrador</a></p>
+            <a href="{!! url('admins/create') !!}" class="btn btn-success btn-block">Crear Administrador</a></p>
             <hr>
             <table class="table">
                 <thead class="thead-dark">

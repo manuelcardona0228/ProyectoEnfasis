@@ -2,14 +2,16 @@
 
 @section('content')
 
-    <div class="col-md-10 offset-md-2 mt-5 main">
+    <div class="col-md-10 offset-md-2 mt-5 main cuerpo-dos">
+      <h1 class="lines-effect">Información Del Turno</h1>
         <div class="card">
-          <div class="card-header text-white bg-dark">{{ __('Barberia') }}</div>
+          <div class="card-header text-white bg-dark">{{ __('Turno Seleccionado') }}</div>
             <div class="card-body">
-              <h1>{{ $turno->fecha }}</h1>
-              <p class="lead">Turno</p>
-
               <table class="table table-striped table-hover">
+              <tr>
+                <td>Fecha Del Turno</td>
+                <td>{{ $turno->fecha }}</td>
+              </tr>
               <tr>
                 <td>Barbero</td>
                   <td>{{ $turno->barbero->nombres }}</td>
@@ -32,14 +34,16 @@
 
               <hr>
 
-              <a href="{{ route('turnos.index') }}" class="btn btn-info">Volver al listado</a>
-              <a href="{{ route('turnos.edit', $turno->id) }}" class="btn btn-warning">Editar</a>
+              <a href="{{ route('turnos.index') }}" class="btn btn-info btn-block">Volver al listado</a>
+              </br>
+              <a href="{{ route('turnos.edit', $turno->id) }}" class="btn btn-warning btn-block">Editar</a>
+              </br>
               {!! Form::open([
                   'method' => 'DELETE',
                   'route' => ['turnos.destroy', $turno->id],
                   'onsubmit' => 'return confirm("¿Esta seguro de borrar este turno?");'
               ]) !!}
-              {!! Form::submit('Borrar', ['class' => 'btn btn-danger']) !!}
+              {!! Form::submit('Borrar', ['class' => 'btn btn-danger btn-block']) !!}
               {!! Form::close() !!}
 
             </div>

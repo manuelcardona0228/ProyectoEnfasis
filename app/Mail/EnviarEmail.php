@@ -29,7 +29,8 @@ class EnviarEmail extends Mailable
      */
     public function build()
     {
-        return $this->from($this->datos->email, $this->datos->name)
+        //return $this->view('Contacto.email');
+        return $this->from('barberasysContacto@gmail.com')
             ->subject("Contacto del sitio")
             ->view('Contacto.emailContacto');
     }

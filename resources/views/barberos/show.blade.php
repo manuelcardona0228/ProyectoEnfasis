@@ -25,7 +25,7 @@
               </tr>
               <tr>
                 <td>Correo</td>
-                <td>{{ $barbero->apellidos }}</td>
+                <td>{{ $barbero->email }}</td>
               </tr>
               <tr>
                 <td>Fecha De Nacimiento</td>
@@ -40,8 +40,8 @@
                 <td>{{ $barbero->nameUser }}</td>
               </tr>
               <tr>
-                <td>Sede</td>
-                <td>{{ $barbero->sede->razonSocial }}</td>
+                <td>Barberia</td>
+                <td>{{ $barbero->barberia->razonSocial }}</td>
               </tr>
               <tr>
                 <td>Cargo</td>

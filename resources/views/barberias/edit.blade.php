@@ -53,7 +53,7 @@
                     </div>
 
                     {!! Form::submit('Actualizar', ['class' => 'btn btn-primary']) !!}
-                    <a href="{{ route('barberias.index') }}" class="btn btn-secondary">Cancelar</a>
+                    <a href="{{ route('barberias.index') }}" class="btn btn-secondary">Volver</a>
 
                     {!! Form::close() !!}
             </div>

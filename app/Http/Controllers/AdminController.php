@@ -44,9 +44,11 @@ class AdminController extends Controller
     {
         $input = $request->all();
         $contraseña = $request->input("password");
+        $email = $request->input("email");
         $contraseñaEncriptada = Hash::make($contraseña);
         $admin = new Admin();
         $admin->fill($input);
+        $admin->email = $email;
         $admin->password = $contraseñaEncriptada;
         $admin->cargo_id = 1;
         $admin->save();

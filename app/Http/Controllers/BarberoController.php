@@ -3,12 +3,17 @@
 namespace App\Http\Controllers;
 
 use App\Barbero;
-use App\Sede;
+use App\Barberia;
 use Illuminate\Http\Request;
 use Session;
 
 class BarberoController extends Controller
 {
+
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     /**
      * Display a listing of the resource.
      *
@@ -27,8 +32,8 @@ class BarberoController extends Controller
      */
     public function create()
     {
-        $sede = Sede::all()->pluck('razonSocial', 'id');
-        return view('barberos.create', compact('sede'));
+        $barberia = Barberia::all()->pluck('razonSocial', 'id');
+        return view('barberos.create', compact('barberia'));
     }
 
     /**
@@ -40,10 +45,10 @@ class BarberoController extends Controller
     public function store(Request $request)
     {
         $input = $request->all();
-        $sede = $request->input('sede_id');
+        $barberia = $request->input('barberia_id');
         $barbero = new Barbero();
         $barbero ->fill($input);
-        $barbero ->sede_id = $sede;
+        $barbero ->barberia_id = $barberia;
         $barbero ->cargo_id = 2;
         $barbero ->save();
 
@@ -78,8 +83,8 @@ class BarberoController extends Controller
         //$user = User::all()->pluck('fechaNac');
         //$user = User::all()->pluck('nameUser');
         //$user = User::all()->plunk('password');
-        $sede = Sede::all()->pluck('razonSocial', 'id');
-        return view('barberos.edit', compact('barbero','sede'));
+        $barberia = Barberia::all()->pluck('razonSocial', 'id');
+        return view('barberos.edit', compact('barbero','barberia'));
     }
 
     /**

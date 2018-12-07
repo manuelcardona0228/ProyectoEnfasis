@@ -10,6 +10,12 @@ class ContactoController extends Controller
 {
     public function enviarMensaje(Request $request)
     {
-        Mail::to('barbersysContacto@gmail.com')->send(new EnviarEmail($request));
+        /*
+        $user_name = 'Contacto Barbersys';
+        $to = 'barbersysContacto@gmail.com';
+        Mail::to($to)->send(new EnviarEmail($user_name));
+        return 'Mail sent successfully';
+        */
+        Mail::to($request->input('email'))->send(new EnviarEmail($request));
     }
 }

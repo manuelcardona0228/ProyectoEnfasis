@@ -1,14 +1,16 @@
 @extends('PruebaLayaud.app')
 
 @section('content')
-    <div class="col-md-10 offset-md-2 mt-5 main">
+    <div class="col-md-10 offset-md-2 mt-5 main cuerpo-dos">
+      <h1 class="lines-effect mt-2">Información De La Sede</h1>
         <div class="card">
-          <div class="card-header text-white bg-dark">{{ __('Ver Sede') }}</div>
+          <div class="card-header text-white bg-dark">{{ __('Sede Seleccionada') }}</div>
             <div class="card-body">
-              <h1>{{ $sede->razonSocial }}</h1>
-              <p class="lead">Sede</p>
-
               <table class="table table-striped table-hover">
+              <tr>
+                <td style="width: 200px;">Razón Social</td>
+                <td>{{ $sede->razonSocial }}</td>
+              </tr>
               <tr>
                   <td style="width: 200px;">Nit</td>
                   <td>{{ $sede->nit }}</td>
@@ -37,14 +39,16 @@
 
               <hr>
 
-              <a href="{{ route('sedes.index') }}" class="btn btn-info">Volver al listado</a>
-              <a href="{{ route('sedes.edit', $sede->id) }}" class="btn btn-warning">Editar</a>
+              <a href="{{ route('sedes.index') }}" class="btn btn-info btn-block">Volver al listado</a>
+              </br>
+              <a href="{{ route('sedes.edit', $sede->id) }}" class="btn btn-warning btn-block">Editar</a>
+              </br>
               {!! Form::open([
                   'method' => 'DELETE',
                   'route' => ['sedes.destroy', $sede->id],
                   'onsubmit' => 'return confirm("¿Esta seguro de borrar esta sede?");'
               ]) !!}
-              {!! Form::submit('Borrar', ['class' => 'btn btn-danger']) !!}
+              {!! Form::submit('Borrar', ['class' => 'btn btn-danger btn-block']) !!}
               {!! Form::close() !!}
           </div>
         </div>  

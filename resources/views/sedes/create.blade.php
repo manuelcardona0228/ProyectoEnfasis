@@ -11,12 +11,11 @@
     @endif
 
     
-    <div class="col-md-10 offset-md-2 mt-5 main">
-        <h1>Agregar una sede</h1>
-        <p class="lead">Especifique la información de la sede a crear.</p>
+    <div class="col-md-10 offset-md-2 mt-5 main cuerpo-dos">
+        <h1 class="lines-effect mt-2">Agregar Sede</h1>
         <hr>
         <div class="card">
-            <div class="card-header bg-ligth">{{ __('Especifique la información de la barberia a crear.') }}</div>
+            <div class="card-header text-white bg-dark">{{ __('Especifique la información de la sede a crear.') }}</div>
                 <div class="card-body">
                     {!! Form::open(['route' => 'sedes.store']) !!}
                     <div class="form-group">
@@ -50,7 +49,7 @@
                     </div>
 
                     {!! Form::submit('Crear', ['class' => 'btn btn-primary']) !!}
-
+                    <a href="{{ route('sedes.index') }}" class="btn btn-secondary">Volver</a>
                     {!! Form::close() !!}
             </div>
         </div>

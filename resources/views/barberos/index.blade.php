@@ -5,7 +5,7 @@
         <h1>Lista de Barberos</h1>
         <hr>
         <p class="lead"> 
-        <a href="{!! url('barberos/create') !!}" class="btn btn-success btn-block">Agregar Barbero</a></p>
+        <a href="{!! url('barberos/create') !!}" class="btn btn-success btn-block">Crear Barbero</a></p>
         <hr>
         <table class="table">
             <thead class="thead-dark">

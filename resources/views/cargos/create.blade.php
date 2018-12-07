@@ -12,10 +12,10 @@
 
     
     <div class="col-md-10 offset-md-2 mt-4 main cuerpo-dos">
-        <h1 class="lines-effect">Agregar un Cargo</h1>
+        <h1 class="lines-effect">Crear Cargo</h1>
         <hr>
         <div class="card">
-            <div class="card-header bg-ligth">{{ __('Especifique la información del cargo a crear.') }}</div>
+            <div class="card-header text-white bg-dark">{{ __('Especifique la información del cargo a crear.') }}</div>
                 <div class="card-body">
                     {!! Form::open(['route' => 'cargos.store']) !!}
                     <div class="form-group">
@@ -24,7 +24,7 @@
                     </div>
 
                     {!! Form::submit('Crear', ['class' => 'btn btn-primary btn-block']) !!}
-                    <a class="btn btn-secondary btn-block" href="{{ route('cargos.index') }}">Cancelar</a></p>
+                    <a class="btn btn-secondary btn-block" href="{{ route('cargos.index') }}">Volver</a></p>
                     {!! Form::close() !!}
             </div>
         </div>

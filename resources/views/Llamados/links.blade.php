@@ -14,6 +14,8 @@
     <!-- CSS Personalizados -->
     <link rel="stylesheet" href="css/main.css">
 
+    <link rel="icon" href="/plugins/bootstrap/img/BarberSys 1.0 Favicon.ico">
+
 </head>
 <body>
     <!-- Scripts Bootstrap -->

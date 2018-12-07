@@ -19,13 +19,13 @@ class CreateBarberosTable extends Migration
             $table->string('nombres',40);
             $table->string('apellidos',40);
             $table->string('telefono',13);
-            $table->string('correo',64);
+            $table->string('email',64)->unique();
             $table->timestamp('fechaNac');
             $table->integer('calificacion');
             $table->string('nameUser',20);
             $table->string('password',10);
 
-            $table->unsignedInteger('sede_id');
+            $table->unsignedInteger('barberia_id');
 
             $table->unsignedInteger('cargo_id');
 
@@ -33,9 +33,9 @@ class CreateBarberosTable extends Migration
 
             $table->timestamps();
 
-            $table->foreign('sede_id')
+            $table->foreign('barberia_id')
             ->references('id')
-            ->on('sedes');
+            ->on('barberias');
 
             $table->foreign('cargo_id')
                 ->references('id')

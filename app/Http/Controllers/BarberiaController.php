@@ -28,7 +28,7 @@ class BarberiaController extends Controller
      */
     public function create()
     {
-        $admin = Admin::all()->pluck('documento', 'id');
+        $admin = Admin::all()->pluck('nombres', 'id');
         return view('barberias.create' , compact('admin'));
     }
 

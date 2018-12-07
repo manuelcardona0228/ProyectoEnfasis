@@ -12,7 +12,7 @@
 
     
     <div class="col-md-10 offset-md-2 mt-5 main cuerpo-dos">
-        <h1 class="lines-effect mt-2">Agregar Barberia</h1>
+        <h1 class="lines-effect mt-2">Crear Barberia</h1>
         <hr>
         <div class="card">
             <div class="card-header text-white bg-dark">{{ __('Especifique la información de la barberia a crear.') }}</div>

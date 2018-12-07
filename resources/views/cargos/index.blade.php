@@ -5,7 +5,7 @@
         <h1 class="lines-effect">Lista De Cargos</h1>
         <p class="lead"> 
         <hr>
-        <a href="{!! url('cargos/create') !!}" class="btn btn-success btn-block">Agregar Cargo</a></p>
+        <a href="{!! url('cargos/create') !!}" class="btn btn-success btn-block">Crear Cargo</a></p>
         <hr>
             <table class="table">
                 <thead class="thead-dark">
